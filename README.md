@@ -2,7 +2,7 @@
 
 New web version is available at https://postergen.elliotjarnit.dev/
 
----
+## Run locally
 
 To run on Windows, download the [latest release](https://github.com/Swiftzerr/AlbumPosterGenerator/releases/latest)
 
