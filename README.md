@@ -1,5 +1,11 @@
 # Album Poster Generator
 
+---
+
+New web version is available at https://postergen.elliotjarnit.dev/
+
+---
+
 To run on Windows, download the [latest release](https://github.com/Swiftzerr/AlbumPosterGenerator/releases/latest)
 
 ---
