@@ -33,7 +33,6 @@ fonts = {
     "albumname": "VeryBold",
     "albumartist": "SemiBold",
     "tracklist": "Regular",
-    "albumyear": "Medium",
     "copyright": "Light"
 }
 
@@ -157,7 +156,6 @@ def main():
     album_artwork_link = album['artworkUrl100'].replace('100x100bb.jpg',
                                                         '600x600bb.jpg')
     album_name = album["collectionName"]
-    album_year = album['releaseDate'].split('-')[0]
     album_artist = album['artistName']
     album_copyright = album['copyright'].replace("℗", "(c)")
 
@@ -200,9 +198,7 @@ def main():
     cursize = 55
     while length > 480:
         font_name = ImageFont.truetype(resource_path('fonts/' + fonts["albumname"].lower() + '.otf'), cursize)
-        font_year = ImageFont.truetype(resource_path('fonts/' + fonts["albumyear"].lower() + '.otf'), int(cursize / 2) + 5)
-        length = font_name.getlength(album_name) + font_year.getlength(
-            album_year) + 77
+        length = font_name.getlength(album_name) + 77
         cursize -= 1
     # Load static fonts
     font_artist = ImageFont.truetype(resource_path('fonts/' + fonts["albumartist"].lower() + '.otf'), 25)
@@ -256,15 +252,6 @@ def main():
     posterdraw.text((65, 725),
                     album_name,
                     font=font_name,
-                    fill=(0, 0, 0),
-                    anchor='ls')
-    # Calculate where the year goes on image
-    albumnamebbox = posterdraw.textbbox((20, 20), "a", font=font_name)
-    albumyearbbox = posterdraw.textbbox((20, 20), "a", font=font_year)
-    # Put the year on image
-    posterdraw.text((77 + font_name.getlength(album_name), 725),
-                    album_year,
-                    font=font_year,
                     fill=(0, 0, 0),
                     anchor='ls')
     # Get dominant colors
